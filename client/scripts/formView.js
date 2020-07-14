@@ -16,11 +16,14 @@ var FormView = {
       roomname: 'youcannnotseethisroom'
     };
 
-    console.log('click!');
-    // var message = document.getElementById('message').value;
-    console.log(message.username);
+    // console.log('click!');
+    console.log(message.text);
     Parse.create(message);
-    // use Parse.create and it takes in a message
+    document.getElementById('message').value = '';
+    App.startSpinner();
+    $('.chat').remove(); // move to messagesView
+    App.fetch();
+    App.stopSpinner();
 
   },
 

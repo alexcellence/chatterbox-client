@@ -6,7 +6,13 @@ var MessagesView = {
 
   },
 
-  renderMessage: function(collection) {
+  // renderMessage: function(message) {
+  //   $('.chat').remove();
+  //   var $message = MessageView.render(message);
+  //   this.$chats.append($message);
+  // },
+
+  renderMessages: function(collection) {// no need for parameter
     // set the parameter as (...)
     // takes in a message as parameter
 
@@ -14,17 +20,15 @@ var MessagesView = {
     // ? looks into masseges for a massege
     // should append to $chats (a div full of messages ?)
 
-    // var message = {
-    //   username: 'shawndrost',
-    //   text: 'trololo',
-    //   roomname: '4chan'
-    // };
+    $('.chat').remove(); // moved from messagesView
 
     // use a for loop and run render on every message then append it
-    for (var i = 0; i < collection.length; i++) {
+    for (var i = 0; i < collection.length; i++) { // messages.length using _.ech
       if (!collection[i].text) {
         continue;
-      } else if (collection[i].text.includes('<script>')) {
+      } else if (collection[i].text.includes('<script')) {
+        continue;
+      } else if (collection[i].text.includes('.js')) {
         continue;
       } else {
         var $message = MessageView.render(collection[i]);
@@ -32,20 +36,26 @@ var MessagesView = {
       }
     }
 
-    // var $usernameAndText =
-    // `<div class="username">${message.username}</div>
-    // <div>${message.text}</div>`;
+    // for (var i = 0; i < collection.length; i++) { // messages.length using _.ech
+    //   if (!collection[i].text) {
+    //     continue;
+    //   } else if (collection[i].text.includes('<script')) {
+    //     continue;
+    //   } else if (collection[i].text.includes('.js')) {
+    //     continue;
+    //   } else {
+    //     var $message = this.renderMessage(collection[i]);
+    //     this.$chats.append($message);
+    //   }
+    // }
 
-    // var $text = $(`<div>${$usernameAndText}</div>`);
 
-    // takes in the colleciton
-    // parse thought the collection of messeges
-    // call messages view
-    // append to DOM
+    // for (var i = 0; i < collection.length; i++) { // messages.length using _.ech
 
+    //   var $message = MessageView.render(collection[i]);
+    //   this.$chats.append($message);
 
-
+    // }
   }
-
 
 };

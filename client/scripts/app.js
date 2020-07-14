@@ -14,6 +14,8 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    // var intervalID = scope.setInterval(func, [delay, arg1, arg2, ...]);
+    //var intervalID = scope.setInterval(code, [delay]);
 
   },
 
@@ -22,9 +24,12 @@ var App = {
       // examine the response from the server request:
 
       console.log(data);
-      MessagesView.renderMessage(data.results);
+      Messages = data.results;
+      console.log(Messages.all);
+      MessagesView.renderMessages(data.results);
       callback();
     });
+    setInterval(App.fetch, (60 * 1000));
   },
 
   startSpinner: function() {
