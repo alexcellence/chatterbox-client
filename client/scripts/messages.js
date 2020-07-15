@@ -1,5 +1,7 @@
 var Messages = {
 
+  storage: []
+
   // find some way to reference data array
   // all: function(successCB, errorCB = null) {
   //   $.ajax({
@@ -22,7 +24,7 @@ var Messages = {
 
 };
 
-console.log(Messages);
+// console.log(Messages);
 
 // var allM = (Messages.all((data) => {
 //   // examine the response from the server request:

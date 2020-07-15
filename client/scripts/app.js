@@ -14,19 +14,17 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-    // var intervalID = scope.setInterval(func, [delay, arg1, arg2, ...]);
-    //var intervalID = scope.setInterval(code, [delay]);
 
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-
-      console.log(data);
+      // console.log(data);
       Messages = data.results;
-      console.log(Messages.all);
+      // Messages.storage = data.results;
       MessagesView.renderMessages(data.results);
+      RoomsView.fillList(data.results);
       callback();
     });
     setInterval(App.fetch, (60 * 1000));

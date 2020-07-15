@@ -13,7 +13,7 @@ var FormView = {
     var message = {
       username: App.username,
       text: document.getElementById('message').value,
-      roomname: 'youcannnotseethisroom'
+      roomname: Rooms.selected
     };
 
     // console.log('click!');
